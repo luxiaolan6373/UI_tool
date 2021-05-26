@@ -1,7 +1,8 @@
-def get_mode_connect(name, suffix,signal,args,note):
-    connect=f'''def {signal}_{suffix}(self{args}):
-    #{note}
-    print('{signal}'{args})'''
+def get_mode_connect(name,signal):
+    connect=f'''def {signal['name']}_{name}(self):
+    #{signal['text']}
+    #{signal['note']}
+    print('{signal['text']}')'''
 
-    bound=f'''#如果需要传参数可以使用functools库\nself.{name}.{signal}.connect(self.{signal}_{suffix})'''
+    bound=f'''#如果需要传参数可以使用functools库\nself.{name}.{signal['name']}.connect(self.{signal['name']}_{name})'''
     return connect,bound
