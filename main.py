@@ -5,13 +5,13 @@
 # pip install qdarkstyle -i https://pypi.tuna.tsinghua.edu.cn/simple/
 
 
-import sys, qdarkstyle, webbrowser, re,requests,functools,json
+import sys, qdarkstyle, webbrowser, re,requests,functools,json,bs4
 from PyQt5.Qt import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from ui.MainWindow import Ui_MainWindow
 from mode.window import get_mode_window
-from mode.connect import get_mode_connect
+from mode.connect import get_mode_connect,get_mode_qevent
 
 
 class Window(QMainWindow, Ui_MainWindow):  # 类的多继承
@@ -20,8 +20,9 @@ class Window(QMainWindow, Ui_MainWindow):  # 类的多继承
         super().__init__()
         self.set_ui()
         self.setupUi(self)  # 当前类继承了父类的方法,直接调用
-        user_amount = requests.post('http://ai.lzzyjy.cn/usageamount').text
-        self.setWindowTitle('懒人工具--PyQt5代码生成器     '+user_amount)
+
+
+        self.setWindowTitle('懒人工具--PyQt5代码生成器     ')
         self.setWindowIcon(QIcon('./logo.ico'))
         self.connects = []
         self.currenSignal_class = ''  # 当前的控件类型
@@ -193,11 +194,11 @@ class Window(QMainWindow, Ui_MainWindow):  # 类的多继承
             QMessageBox.warning(self,'错误','预览窗口不能提前关闭')
     def activated_cbb_qevent(self, i):
         try:
-            connect, bound = get_mode_connect(self.tw.widget_name, self.qevents[i])
+            connect, bound = get_mode_qevent(self.tw.widget_name, self.qevents[i])
             self.ed_signal.setText(bound)
             self.ed_connect.setText(connect)
-        except:
-            QMessageBox.warning(self,'错误','预览窗口不能提前关闭')
+        except Exception as  err:
+            QMessageBox.warning(self,'错误','预览窗口不能提前关闭\n'+str(err))
 
 
 if __name__ == "__main__":

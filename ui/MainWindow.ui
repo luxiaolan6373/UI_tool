@@ -15,7 +15,7 @@
    <string>MainWindow</string>
   </property>
   <property name="toolTip">
-   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;还有更多功能正在研发中...&lt;/p&gt;&lt;p&gt;如果您有什么想法可以在论坛或者B站留言!&lt;/p&gt;&lt;p&gt;论坛地址:www.52pojie.cn&lt;/p&gt;&lt;p&gt;B站ID:python懒人智能&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   <string/>
   </property>
   <property name="styleSheet">
    <string notr="true">*{font: 75 10pt &quot;微软雅黑&quot;;}

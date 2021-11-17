@@ -15,6 +15,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(846, 613)
+        MainWindow.setToolTip("")
         MainWindow.setStyleSheet("*{font: 75 10pt \"微软雅黑\";}\n"
 "\n"
 "#lb_title{\n"
@@ -246,7 +247,6 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        MainWindow.setToolTip(_translate("MainWindow", "<html><head/><body><p>还有更多功能正在研发中...</p><p>如果您有什么想法可以在论坛或者B站留言!</p><p>论坛地址:www.52pojie.cn</p><p>B站ID:python懒人智能</p></body></html>"))
         self.label_4.setText(_translate("MainWindow", "参数:必须遵守命名规则 ui生成的py文件都对应UI_class参数的值"))
         self.label_3.setText(_translate("MainWindow", "类主体:"))
         self.bt_copy_class.setText(_translate("MainWindow", "复制主体"))
